@@ -1,0 +1,39 @@
+﻿@using Contoso.Models
+@using ContosoWeb.Utils
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title – Contoso Sports</title>
+    @Styles.Render("~/Content/css")
+
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/signalr")
+    <script src="/signalr/hubs"></script>
+    @Scripts.Render("~/bundles/site")
+</head>
+<body>
+    @RenderSection("prebody", false)
+    <div class="container">
+        @RenderBody()
+    </div>
+    <div class="clearfix"></div>
+
+    <footer id="xboxFooter">
+        <div>
+            <a href="@Url.Action("Index", "Home", new { Area = string.Empty }, null)">
+                @Html.Image("sla_logo.png", "Contoso SLA logo")
+            </a>
+            <a href="@Url.Action("Index", "Home", new { Area = string.Empty }, null)">
+                <h1>Contoso Sports League Association</h1>
+            </a>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/respond")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

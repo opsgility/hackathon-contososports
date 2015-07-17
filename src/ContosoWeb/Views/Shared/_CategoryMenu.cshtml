@@ -1,0 +1,7 @@
+﻿@model IEnumerable<Contoso.Models.Category>
+@foreach (var genre in Model)
+{
+    <li>@Html.ActionLink(genre.Name, "Browse", "Store", new { categoryId = genre.CategoryId, Area = string.Empty }, null)</li>
+}
+<li>@Html.ActionLink("Checkout", "AddressAndPayment", "Checkout")</li>
+<li>@Html.ActionLink("More", "Index", "Store", new {Area = string.Empty}, null)</li>

@@ -1,0 +1,83 @@
+﻿@using ContosoWeb.Utils
+@model ContosoWeb.ViewModels.HomeViewModel
+
+@section scripts {
+    <script>
+        $('.carousel').carousel()
+    </script>
+}
+
+<div class="hero-display">
+    <div id="jumbotron-carousel" class="carousel slide" data-ride="carousel" data-interval="10000">
+        <!-- Indicators -->
+        <div id="carouselIndicators" class="col-sm-12">
+            <ol class="carousel-indicators">
+                <li data-target="#jumbotron-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#jumbotron-carousel" data-slide-to="1"></li>
+            </ol>
+        </div>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active" @Html.ImageBackground("hero_image1.jpg")>
+                <a href="@Url.Action("Browse", "Store", new {id = 5})" class="carousel-wrapper-link"></a>
+                @{
+                    var match = Model.CurrentMatch ?? Model.NextMatch;
+                }
+
+                <div id="countdownTimer" class="col-sm-12">
+                    <p><!-- countdown placeholder --></p>
+                    <script type="text/javascript">$(function() { countUpDownTimer(@match.MatchDate.ToMillisecondsSinceUtcEpoch()); })</script>
+                </div>
+
+                <div id="teamLogos" class="hidden-xs hidden-sm col-sm-12">
+                    <div class="col-sm-4">
+                        @Html.Image(match.HomeTeam.LogoImageSrc, string.Concat(match.HomeTeam.Name, " logo"))
+                    </div>
+                    <div class="col-sm-4 visible-xs visible-sm"></div>
+                    <div class="col-sm-4 vsText hidden-xs hidden-sm">
+                        <span>VS.</span>
+                    </div>
+                    <div class="col-sm-4">
+                        @Html.Image(match.AwayTeam.LogoImageSrc, string.Concat(match.AwayTeam.Name, " logo"))
+                    </div>
+                </div>
+
+                <div id="teamNamesDiv" class="col-sm-12">
+                    <div class="col-sm-4">
+                        <p>@match.HomeTeam.Name</p>
+                    </div>
+                    <div class="col-sm-4 hidden-xs hidden-sm"></div>
+                    <div class="col-sm-4 vsText visible-xs visible-sm">
+                        <span>VS.</span>
+                    </div>
+                    <div class="col-sm-4">
+                        <p>@match.AwayTeam.Name</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item" @Html.ImageBackground("hero_image2.jpg")>
+                <a href="@Url.Action("Browse", "Store", new { categoryId = 1 })">
+                    <div id="saleBanner" class="container">
+                        <div class="col-sm-10">
+                            <h1 class="hidden-xs">20% off</h1>
+                            <h1 id="mobileSavingsHeaderFirst" class="mobileSavingsHeader visible-xs">20%</h1>
+                            <h1 class="mobileSavingsHeader visible-xs">off</h1>
+                        </div>
+                        <div class="col-sm-10">
+                            <h2>Men's Jerseys!</h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#jumbotron-carousel" role="button" data-slide="prev">
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#jumbotron-carousel" role="button" data-slide="next">
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>

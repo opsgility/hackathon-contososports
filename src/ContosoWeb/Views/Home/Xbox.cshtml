@@ -1,0 +1,114 @@
+﻿@model ContosoWeb.ViewModels.HomeViewModel
+
+@{
+    ViewBag.Title = "Xbox Page";
+}
+
+@section prebody {
+    @Html.Partial("_Carousel", Model)
+
+    <div class="featured-areas">
+        <div class="container">
+            <section class="section-alt">
+                <div class="row">
+                    <div class="area-tile col-xs-12 col-sm-4 col-md-4">
+                        <table class="twoColumns">
+                            <thead>
+                                <tr>
+                                    <th>Previous Meetings</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var match in Model.PreviousMatches)
+                                {
+                                    <tr>
+                                        <td>@match.MatchDate.ToString("MM/dd")</td>
+                                        <td>
+                                            <span class="@(match.WinningTeamId != null && match.WinningTeamId == match.HomeTeam.TeamId ? "boldFont" : string.Empty)">@match.HomeTeam.AbbreviatedName</span>
+                                            <span>@(string.Format(" {0} - {1} ", match.HomeTeamScore, match.AwayTeamScore))</span>
+                                            <span class="@(match.WinningTeamId != null && match.WinningTeamId == match.AwayTeam.TeamId ? "boldFont" : string.Empty)">@match.AwayTeam.AbbreviatedName</span>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="area-tile col-xs-12 col-sm-4 col-md-4">
+                        <h3>Season Goal Leaders</h3>
+                        @if (Model.CurrentMatch != null)
+                        {
+                            <ul>
+                                <li class="boldFont">@Model.CurrentMatch.HomeTeam.Name</li>
+                                @foreach (var player in Model.CurrentMatch.HomeTeam.Players.OrderByDescending(x => x.GoalsScored).Take(2))
+                                {
+                                    <li>
+                                        <span>@player.Name</span>
+                                        <span>@player.GoalsScored</span>
+                                    </li>
+                                }
+                            </ul>
+                            <ul>
+                                <li class="boldFont">@Model.CurrentMatch.AwayTeam.Name</li>
+                                @foreach (var player in Model.CurrentMatch.AwayTeam.Players.OrderByDescending(x => x.GoalsScored).Take(2))
+                                {
+                                    <li>
+                                        <span>@player.Name</span>
+                                        <span>@player.GoalsScored</span>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <ul>
+                                <li class="boldFont">@Model.NextMatch.HomeTeam.Name</li>
+                                @foreach (var player in Model.NextMatch.HomeTeam.Players.OrderByDescending(x => x.GoalsScored).Take(2))
+                                {
+                                    <li>
+                                        <span>@player.Name</span>
+                                        <span>@player.GoalsScored</span>
+                                    </li>
+                                }
+                            </ul>
+                            <ul>
+                                <li class="boldFont">@Model.NextMatch.AwayTeam.Name</li>
+                                @foreach (var player in Model.NextMatch.AwayTeam.Players.OrderByDescending(x => x.GoalsScored).Take(2))
+                                {
+                                    <li>
+                                        <span>@player.Name</span>
+                                        <span>@player.GoalsScored</span>
+                                    </li>
+                                }
+                            </ul>
+                        }
+
+                    </div>
+                    <div class="area-tile col-xs-12 col-sm-4 col-md-4">
+                        @if (Model.CurrentMatch != null)
+                        {
+                            <table id="liveStatsTable" class="threeColumns" style="display: none;">
+                                <thead>
+                                    <tr>
+                                        <th>@Model.CurrentMatch.HomeTeam.ShortName</th>
+                                        <th></th>
+                                        <th>@Model.CurrentMatch.AwayTeam.ShortName</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <script type="text/javascript">
+                                startLiveStatsFeed(@Model.CurrentMatch.MatchId);
+                            </script>
+                        }
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+}
+
+<!--TODO : Update github link -->
+<a href="https://github.com/" class="hidden-xs">
+    <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6625ac1f3ee0a12250227cf83ce904423abf351/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png">
+</a>

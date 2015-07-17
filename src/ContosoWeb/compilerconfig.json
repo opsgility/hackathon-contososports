@@ -1,0 +1,52 @@
+﻿[
+  {
+    "outputFile": "Content/Home.css",
+    "inputFile": "Content/Home.scss",
+    "minify": {
+      "enabled": true
+    },
+    "includeInProject": true,
+    "sourceMap": false,
+    "options": {}
+  },
+  {
+    "outputFile": "Content/Account.css",
+    "inputFile": "Content/Account.scss",
+    "minify": {
+      "enabled": true
+    },
+    "includeInProject": true,
+    "sourceMap": false,
+    "options": {}
+  },
+  {
+    "outputFile": "Content/ShoppingCart.css",
+    "inputFile": "Content/ShoppingCart.scss",
+    "minify": {
+      "enabled": true
+    },
+    "includeInProject": true,
+    "sourceMap": false,
+    "options": {}
+  },
+  {
+    "outputFile": "Content/Site.css",
+    "inputFile": "Content/Site.scss",
+    "minify": {
+      "enabled": true
+    },
+    "includeInProject": true,
+    "sourceMap": false,
+    "options": {}
+  },
+  {
+    "outputFile": "Content/Store.css",
+    "inputFile": "Content/Store.scss",
+    "minify": {
+      "enabled": true
+    },
+    "includeInProject": true,
+    "sourceMap": false,
+    "options": {}
+  }
+]
