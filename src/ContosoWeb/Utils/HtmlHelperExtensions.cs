@@ -28,7 +28,7 @@ namespace ContosoWeb.Utils
         public static HtmlString ImageBackground(this HtmlHelper helper, string src)
         {
             var cdnSource = GetCdnSource(src);
-            return new HtmlString($"style = \"background-image: url('{cdnSource}')\"");
+            return new HtmlString(String.Format("style = \"background-image: url('{0}')\"", cdnSource));
         }
 
         private static string GetCdnSource(string src)

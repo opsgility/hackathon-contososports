@@ -40,3 +40,5 @@ src/*/wwwroot/Content/site.*css
 *.sln.ide
 *.orig
 /PartsUnlimitedLite/packages/Newtonsoft.Json.6.0.4/lib
+
+.vs/config/applicationhost.config

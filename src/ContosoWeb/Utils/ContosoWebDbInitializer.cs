@@ -86,7 +86,7 @@ namespace ContosoWeb.Utils
                 new Product
                 {
                     SkuNumber = "TIK-0002",
-                    Title = $"Cubs vs. Falcons - {DateTime.UtcNow.AddDays(9).ToString("MM/dd")}",
+                    Title = "Cubs vs. Falcons - " + DateTime.UtcNow.AddDays(9).ToString("MM/dd"),
                     CategoryId = categoriesMap["Tickets"],
                     Price = 59.99M,
                     SalePrice = 59.99M,
@@ -100,7 +100,7 @@ namespace ContosoWeb.Utils
                 new Product
                 {
                     SkuNumber = "TIK-0003",
-                    Title = $"Cubs vs. Falcons - {DateTime.UtcNow.AddDays(16).ToString("MM/dd")}",
+                    Title = "Cubs vs. Falcons - " + DateTime.UtcNow.AddDays(16).ToString("MM/dd"),
                     CategoryId = categoriesMap["Tickets"],
                     Price = 59.99M,
                     SalePrice = 59.99M,
@@ -114,7 +114,7 @@ namespace ContosoWeb.Utils
                 new Product
                 {
                     SkuNumber = "TIK-0004",
-                    Title = $"Semi Final 1 - {DateTime.UtcNow.AddDays(23).ToString("MM/dd")}",
+                    Title = "Semi Final 1 - " + DateTime.UtcNow.AddDays(23).ToString("MM/dd"),
                     CategoryId = categoriesMap["Tickets"],
                     Price = 79.99M,
                     SalePrice = 79.99M,
@@ -128,7 +128,7 @@ namespace ContosoWeb.Utils
                 new Product
                 {
                     SkuNumber = "TIK-0005",
-                    Title = $"Semi Final 2 - {DateTime.UtcNow.AddDays(30).ToString("MM/dd")}",
+                    Title = "Semi Final 2 - " + DateTime.UtcNow.AddDays(30).ToString("MM/dd"),
                     CategoryId = categoriesMap["Tickets"],
                     Price = 79.99M,
                     SalePrice = 79.99M,
@@ -142,7 +142,7 @@ namespace ContosoWeb.Utils
                 new Product
                 {
                     SkuNumber = "TIK-0006",
-                    Title = $"Final - {DateTime.UtcNow.AddDays(37).ToString("MM/dd")}",
+                    Title = "Final - " + DateTime.UtcNow.AddDays(37).ToString("MM/dd"),
                     CategoryId = categoriesMap["Tickets"],
                     Price = 99.99M,
                     SalePrice = 99.99M,
