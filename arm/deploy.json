@@ -20,6 +20,7 @@
     },
     "RepoUrl": {
             "type": "string",
+            "defaultValue": "https://github.com/opsgility/hackathon-contososports.git",
             "metadata": {
                 "description": "The URL for the GitHub repository that contains the project to deploy."
             }
