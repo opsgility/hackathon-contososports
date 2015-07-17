@@ -72,7 +72,7 @@ namespace ContosoWeb.Utils
                 new Product
                 {
                     SkuNumber = "TIK-0001",
-                    Title = $"Cubs vs. Falcons - {DateTime.UtcNow.AddDays(2).ToString("MM/dd")}",
+                    Title = "Cubs vs. Falcons - " + DateTime.UtcNow.AddDays(2).ToString("MM/dd"),
                     CategoryId = categoriesMap["Tickets"],
                     Price = 59.99M,
                     SalePrice = 59.99M,
